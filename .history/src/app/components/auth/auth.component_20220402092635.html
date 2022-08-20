@@ -1,0 +1,49 @@
+<div class="flex justify-center w-full">
+  <form
+  class="text-slate-500 pt-5 w-1/2"
+  [formGroup]="loginForm"
+  (ngSubmit)="onLogin()"
+  >
+    <h2 class="text-2xl text-slate-700 pb-12">Sign in</h2>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Email</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        placeholder="email@mail.com"
+        formControlName="email"
+        type="text"
+      />
+      <!-- <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+        <div class="text-rose-500" *ngIf="firstName?.errors?.['required']">
+          First name is required
+        </div>
+        <div class="text-rose-500" *ngIf="firstName?.errors?.['pattern']">
+          First name may only contain letters
+        </div>
+      </div> -->
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Password</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        placeholder="Password"
+        formControlName="password"
+        type="password"
+      />
+      <!-- <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+        <div class="text-rose-500" *ngIf="firstName?.errors?.['required']">
+          First name is required
+        </div>
+        <div class="text-rose-500" *ngIf="firstName?.errors?.['pattern']">
+          First name may only contain letters
+        </div>
+      </div> -->
+    </label>
+
+    <button type="submit" class="bg-blue-500 text-zinc-50 p-4 w-1/4 rounded hover:bg-blue-600">
+      Sign in
+    </button>
+  </form>
+</div>

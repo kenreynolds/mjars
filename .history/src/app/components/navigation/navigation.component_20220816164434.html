@@ -1,0 +1,52 @@
+<nav>
+  <ul class="flex items-center text-zinc-50">
+    <li
+      class="mr-6"
+      *ngIf="userIsAuthenticated"
+    >
+      <a
+        class="hover:underline hover:underline-offset-4"
+        routerLink="/members"
+      >
+        Members
+      </a>
+    </li>
+    <li
+      class="mr-6"
+      *ngIf="userIsAuthenticated"
+    >
+      <a
+        class="hover:underline hover:underline-offset-4"
+        routerLink="/members/add-member"
+      >
+        Add member
+      </a>
+    </li>
+    <div class="flex">
+      <li class="mr-6">
+        <a
+          class="hover:underline hover:underline-offset-4"
+          *ngIf="!userIsAuthenticated"
+          routerLink="/signup"
+        >
+          Sign up
+        </a>
+      </li>
+      <li class="mr-6">
+        <a
+          class="font-bold hover:underline hover:underline-offset-4"
+          *ngIf="!userIsAuthenticated"
+          routerLink="/login"
+        >
+          Login
+        </a>
+      </li>
+      <li
+        class="font-bold"
+        *ngIf="userIsAuthenticated"
+      >
+        <button (click)="onLogout()">Logout</button>
+      </li>
+    </div>
+  </ul>
+</nav>

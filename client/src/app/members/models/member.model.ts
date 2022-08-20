@@ -1,0 +1,18 @@
+export interface Member {
+  id: string,
+  firstName: string,
+  lastName: string,
+  emailAddress: string,
+  phoneNumber: string,
+  address: string,
+  city: string,
+  state: string,
+  zipCode: string,
+  callSign: string,
+  licenseClass: string,
+  membershipType: string,
+  title: string,
+  arrlMember: string,
+  interests: string,
+  memberNotes: string,
+}

@@ -1,0 +1,6 @@
+{
+  "env": {
+    "MONGODB_ATLAS_PW": "5usscDXsKWhZPDvm",
+    "JWT_KEY": "secret-this-should-be-longer",
+  }
+}

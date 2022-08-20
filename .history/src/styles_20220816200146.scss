@@ -1,0 +1,33 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.cdk-overlay-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 45px;
+  width: 100%;
+}
+
+.cdk-overlay-container > .cdk-global-overlay-wrapper {
+  display: flex;
+  width: 50%;
+}
+
+.cdk-overlay-pane {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.mat-snack-bar-container {
+  max-width: 100%;
+}

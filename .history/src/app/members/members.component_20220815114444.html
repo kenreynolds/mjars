@@ -1,0 +1,111 @@
+<div class="flex justify-center w-full">
+  <p
+    class="bg-red-400 text-zinc-800 p-4 rounded w-3/4"
+    *ngIf="errorMessage"
+  >
+    {{ errorMessage }}
+  </p>
+</div>
+
+<div *ngIf="!errorMessage">
+  <div class="flex justify-center w-full">
+    <div class="flex flex-col w-3/4">
+      <section class="border-b border-zinc-200 mb-5 pb-5 text-slate-700">
+        <p class="mb-5 mt-5">
+          <span class="font-bold">Club members</span>: {{ membershipCount }}
+        </p>
+
+        <p>
+          <span class="font-bold">ARRL members</span>: {{ arrlMembershipCount }}
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl text-slate-700 pb-4">Member roster</h2>
+
+        <p class="text-base text-slate-700" *ngIf="members.length < 1">
+          No members to show! You can
+          <a
+            routerLink="/members/add-member"
+            class="text-blue-500 cursor-pointer hover:underline hover:underline-offset-4"
+          >add members here</a>.
+        </p>
+
+        <!-- New members list layout -->
+        <section class="mb-3" *ngIf="members.length > 0">
+          <!-- Header -->
+          <div class="flex border-b-2">
+            <div class="text-left p-2 w-24">First name</div>
+            <div class="text-left p-2 w-24">Last name</div>
+            <div class="text-left p-2 w-24">Call sign</div>
+            <div class="text-left p-2 w-20">Class</div>
+            <div class="text-left p-2 w-32">Title</div>
+            <div class="text-left p-2 w-56">Email</div>
+            <div class="text-left p-2 w-14">ARRL?</div>
+          </div>
+
+          <!-- Member row -->
+          <div class="flex flex-row border-b-2" *ngFor="let member of members">
+            <div class="text-left p-2 w-24">{{ member.firstName }}</div>
+            <div class="text-left p-2 w-24">{{ member.lastName }}</div>
+            <div class="text-left p-2 w-24">{{ member.callSign }}</div>
+            <div class="text-left p-2 w-20">{{ member.licenseClass }}</div>
+            <div class="text-left p-2 w-32">{{ member.title }}</div>
+            <div class="text-left p-2 w-56">{{ member.emailAddress }}</div>
+            <div class="text-left p-2 w-14">{{ member.arrlMember }}</div>
+
+            <div class="flex justify-end p-2 w-32">
+              <button>
+                Edit
+              </button>
+
+              <button class="pl-4" (click)="onDelete(member.id)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <table
+          class="table-auto w-full border-2 text-slate-700"
+          *ngIf="members.length > 0"
+        >
+          <thead>
+            <tr class="border-2">
+              <th class="text-left border-b-2 p-2">First name</th>
+              <th class="text-left border-b-2 p-2">Last name</th>
+              <th class="text-left border-b-2 p-2">Call sign</th>
+              <th class="text-left border-b-2 p-2">Class</th>
+              <th class="text-left border-b-2 p-2">Title</th>
+              <th class="text-left border-b-2 p-2">Email</th>
+              <th class="text-left border-b-2 p-2">ARRL member?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let member of members">
+              <td class="border-b-2 p-2">{{ member.firstName }}</td>
+              <td class="border-b-2 p-2">{{ member.lastName }}</td>
+              <td class="border-b-2 p-2">{{ member.callSign }}</td>
+              <td class="border-b-2 p-2">{{ member.licenseClass }}</td>
+              <td class="border-b-2 p-2">{{ member.title }}</td>
+              <td class="border-b-2 p-2">{{ member.emailAddress }}</td>
+              <td class="border-b-2 p-2">{{ member.arrlMember }}</td>
+              <td class="border-b-2 p-2">
+                <button (click)="onDelete(member.id)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <button
+        class="text-blue-500 hover:underline hover:underline-offset-4 mt-4 pb-8"
+        (click)="scrollToTop()"
+      >
+        Back to top
+      </button>
+    </div>
+  </div>
+</div>

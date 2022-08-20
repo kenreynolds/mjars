@@ -1,0 +1,307 @@
+<div class="bg-green-300 text-zinc-800 p-4 rounded" *ngIf="isSuccessful">
+  {{ successMessage }}
+</div>
+
+<div class="bg-red-400 text-zinc-800 p-4 rounded" *ngIf="hasError">
+  {{ errorMessage }}
+</div>
+
+<div class="flex justify-center w-full">
+  <div class="flex justify-between pt-5 w-full lg:w-1/2">
+    <h2 class="text-2xl text-slate-700">Add member</h2>
+    <a
+      routerLink="/members"
+      class="text-blue-500 hover:underline hover:underline-offset-4 cursor-pointer"
+      >View roster</a
+    >
+  </div>
+</div>
+
+<div class="flex justify-center w-full">
+  <form
+    class="text-slate-500 pt-12 w-full lg:w-1/2"
+    [formGroup]="addMemberForm"
+    (ngSubmit)="saveMember()"
+  >
+
+    <!-- Personal information -->
+    <h3 class="text-lg text-slate-700 pb-2">Personal information</h3>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">First name</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        placeholder="First name"
+        formControlName="firstName"
+        type="text"
+      />
+      <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+        <div class="text-rose-500" *ngIf="firstName?.errors?.['required']">
+          First name is required
+        </div>
+        <div class="text-rose-500" *ngIf="firstName?.errors?.['pattern']">
+          First name may only contain letters
+        </div>
+      </div>
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Last name</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="lastName"
+        placeholder="Last name"
+        type="text"
+      />
+      <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+        <div class="text-rose-500" *ngIf="lastName?.errors?.['required']">
+          Last name is required
+        </div>
+        <div class="text-rose-500" *ngIf="lastName?.errors?.['pattern']">
+          Last name may only contain letters
+        </div>
+      </div>
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Email</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="emailAddress"
+        placeholder="email@mail.com"
+        type="email"
+      />
+      <div
+        *ngIf="
+          emailAddress?.invalid && (emailAddress?.dirty || emailAddress?.touched)
+        "
+      >
+        <div class="text-rose-500" *ngIf="emailAddress?.errors?.['required']">
+          Email address is required
+        </div>
+        <div class="text-rose-500" *ngIf="emailAddress?.errors?.['email']">
+          Please enter email in correct format:
+          <span class="italic">user@mail.com</span>
+        </div>
+      </div>
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Phone number</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        autocomplete="chrome-off"
+        formControlName="phoneNumber"
+        placeholder="1234567890"
+        type="text"
+      />
+      <div
+        *ngIf="
+          phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)
+        "
+      >
+        <div class="text-rose-500" *ngIf="phoneNumber?.errors?.['pattern']">
+          Please enter 10 digits only for phone number
+        </div>
+      </div>
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Address</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        autocomplete="chrome-off"
+        formControlName="address"
+        placeholder="123 Your St."
+        type="text"
+      />
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">City</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="city"
+        placeholder="City"
+        type="text"
+      />
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">State</span>
+      <select
+        class="form-select border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="state"
+      >
+        <option value="" disabled>Select</option>
+        <option *ngFor="let state of states" [ngValue]="state.value">
+          {{ state.text }}
+        </option>
+      </select>
+    </label>
+
+    <label class="flex flex-col mb-12">
+      <span class="pb-2">Zip code</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="zipCode"
+        placeholder="76063"
+        type="text"
+      />
+    </label>
+
+    <!-- License information -->
+    <h3 class="text-lg text-slate-700 pb-2">License information</h3>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Call sign</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="callSign"
+        placeholder="WA5JRS"
+        type="text"
+      />
+      <div *ngIf="callSign?.invalid && (callSign?.dirty || callSign?.touched)">
+        <div class="text-rose-500" *ngIf="callSign?.errors?.['required']">
+          Call sign is required
+        </div>
+        <div class="text-rose-500" *ngIf="callSign?.errors?.['pattern']">
+          Call sign may only contain capital letters and numbers
+        </div>
+      </div>
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">License class</span>
+      <select
+        class="form-select border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="licenseClass"
+      >
+        <option value="" disabled>Select</option>
+        <option
+          *ngFor="let licenseType of licenseClassTypes"
+          [ngValue]="licenseType.value"
+        >
+          {{ licenseType.text }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          licenseClass?.invalid && (licenseClass?.dirty || licenseClass?.touched)
+        "
+      >
+        <div class="text-rose-500" *ngIf="licenseClass?.errors?.['required']">
+          License class selection is required
+        </div>
+      </div>
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Membership type</span>
+      <select
+        class="form-select border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="membershipType"
+      >
+        <option value="" disabled>Select</option>
+        <option
+          *ngFor="let membershipType of membershipTypes"
+          [ngValue]="membershipType.value"
+        >
+          {{ membershipType.text }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          membershipType?.invalid &&
+          (membershipType?.dirty || membershipType?.touched)
+        "
+      >
+        <div class="text-rose-500" *ngIf="membershipType?.errors?.['required']">
+          Membership type selection is required
+        </div>
+      </div>
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Title</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="title"
+        placeholder="Chief Radio Officer"
+        type="text"
+      />
+    </label>
+
+    <label class="flex flex-col mb-12">
+      <span class="pb-2">ARRL member?</span>
+      <select
+        class="form-select border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="arrlMember"
+      >
+        <option value="" disabled>Select</option>
+        <option
+          *ngFor="let arrlMember of arrlMemberTypes"
+          [ngValue]="arrlMember.value"
+        >
+          {{ arrlMember.text }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          arrlMembership?.invalid &&
+          (arrlMembership?.dirty || arrlMembership?.touched)
+        "
+      >
+        <div class="text-rose-500" *ngIf="membershipType?.errors?.['required']">
+          ARRL membership selection is required
+        </div>
+      </div>
+    </label>
+
+    <!-- Miscellaneous information -->
+    <h3 class="text-lg text-slate-700 pb-2">Miscellaneous</h3>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Interests</span>
+      <input
+        class="form-input border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="interests"
+        placeholder="Your interests"
+        type="text"
+      />
+    </label>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Member notes</span>
+      <textarea
+        class="form-textarea border-slate-300 focus:ring focus:ring-cyan-500 focus:ring-opacity-25 placeholder:text-slate-300 rounded"
+        formControlName="memberNotes"
+        placeholder="Notes specific to this member"
+        rows="3"
+        type="text"
+      ></textarea>
+    </label>
+
+    <button
+      type="submit"
+      class="transition ease-in-out delay-125
+        bg-blue-500 hover:bg-blue-600 text-zinc-50
+        p-4 rounded w-full md:w-1/2 :w-1/4"
+      [ngClass]="{
+        'bg-blue-100 hover:bg-blue-100 cursor-not-allowed': isInvalid
+      }"
+      [disabled]="isInvalid"
+    >
+      {{ submitButtonLabel }}
+    </button>
+  </form>
+</div>
+
+<div class="flex justify-center w-full">
+  <button
+    class="text-blue-500 hover:underline hover:underline-offset-4 mt-4 pb-8"
+    (click)="scrollToTop()"
+  >
+    Back to top
+  </button>
+</div>

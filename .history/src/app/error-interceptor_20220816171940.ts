@@ -1,0 +1,26 @@
+import {
+  HttpErrorResponse,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest
+} from "@angular/common/http";
+import { catchError, throwError } from "rxjs";
+
+import { ErrorComponent } from "./error/error.component";
+
+export class ErrorInterceptor implements HttpInterceptor {
+  constructor() { }
+
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    return next.handle(req)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          ErrorComponent
+
+          return throwError(() => {
+            new Error();
+          });
+        })
+      );
+  }
+}

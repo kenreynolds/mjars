@@ -1,0 +1,8 @@
+{
+  "env": {
+    "MONGODB_ATLAS_USER": "p00zr:",
+    "MONGODB_ATLAS_PW": "5usscDXsKWhZPDvm",
+    "MONGODB_ATLAS_CLUSTER": "@cluster0.ygmir70.mongodb.net/members?retryWrites=true&w=majority",
+    "JWT_KEY": "r1ChOp0uc3LRLChuCr846hoFRomUsp"
+  }
+}

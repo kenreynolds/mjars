@@ -1,0 +1,18 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.cdk-overlay-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 45px;
+  width: 100%;
+}

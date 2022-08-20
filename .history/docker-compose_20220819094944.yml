@@ -1,0 +1,18 @@
+version: "3.0"
+
+services:
+  client:
+    build: ./client
+    ports:
+      - 4200:4200
+    environment:
+      - apiUrl=http://localhost:3000/api
+
+  express:
+    build: ./server
+    ports:
+      - 3000:3000
+    environment:
+      - MONGODB_ATLAS_PW=5usscDXsKWhZPDvm,
+      - JWT_KEY="r-ChOp+uc?LRLChuCr=$6hoFRomUsp"
+    container_name: mjars-server

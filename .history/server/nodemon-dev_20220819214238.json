@@ -1,0 +1,8 @@
+{
+  "env": {
+    "MONGODB_ATLAS_USER": "your-mongodb-atlas-user-name-(you must keep the colon in the string after your user name):",
+    "MONGODB_ATLAS_PW": "your-mongodb-atlas-password",
+    "MONGODB_ATLAS_CLUSTER": "@your-mongodb-atlas-cluster-info",
+    "JWT_KEY": "your JSON Web Token key"
+  }
+}

@@ -1,0 +1,26 @@
+version: "3.0"
+
+services:
+  client:
+    build: ./client
+    ports:
+      - 4200:4200
+    environment:
+      - apiUrl=http://localhost:3000/api
+  server:
+    build: ./server
+    ports:
+      - 3000:3000
+    environment:
+      - MONGODB_ATLAS_PW=5usscDXsKWhZPDvm,
+      - JWT_KEY=r1ChOp0uc3LRLChuCr846hoFRomUsp
+    links:
+      - database
+    depends_on:
+      - database
+  database:
+    image: mongo
+    volumes:
+      - "/data/db:/data/db"
+    ports:
+      - "27017:27017"

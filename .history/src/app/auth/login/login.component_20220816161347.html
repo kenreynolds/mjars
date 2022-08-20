@@ -1,0 +1,66 @@
+<div class="flex flex-col items-center justify-center w-full">
+  <fa-icon
+    [icon]="spinnerIcon"
+    class="animate-spin"
+  ></fa-icon>
+  <form
+    class="text-slate-500 pt-5 w-full lg:w-1/2"
+    (submit)="onLogin(loginForm)"
+    #loginForm="ngForm"
+  >
+    <h2 class="text-2xl text-slate-700 pb-12">Log in</h2>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Email</span>
+      <input
+        class="form-input
+          border-slate-300 placeholder:text-slate-300 rounded
+          focus:ring focus:ring-cyan-500 focus:ring-opacity-25"
+        name="email"
+        placeholder="email@mail.com"
+        type="email"
+        ngModel
+        #emailInput="ngModel"
+        required
+        email
+      />
+    </label>
+    <div
+      class="text-red-500"
+      *ngIf="emailInput.touched && emailInput.invalid"
+    >
+      Please enter a valid email.
+    </div>
+
+    <label class="flex flex-col pb-4">
+      <span class="pb-2">Password</span>
+      <input
+        class="form-input
+          border-slate-300 placeholder:text-slate-300 rounded
+          focus:ring focus:ring-cyan-500 focus:ring-opacity-25"
+        name="password"
+        placeholder="Password"
+        type="password"
+        ngModel
+        #passwordInput="ngModel"
+        required
+      />
+    </label>
+    <div
+      class="text-red-500"
+      *ngIf="passwordInput.touched && passwordInput.invalid"
+    >
+      Please enter a valid password.
+    </div>
+
+    <div class="flex items-center justify-between w-full lg:w-1/2">
+      <button
+        class="transition ease-in-out delay-125
+          bg-blue-500 hover:bg-blue-600 text-zinc-50
+          mt-3 px-4 py-3 rounded w-full md:w-1/2 xl:w-1/4"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</div>

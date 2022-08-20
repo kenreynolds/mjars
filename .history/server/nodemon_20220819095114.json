@@ -1,0 +1,6 @@
+{
+  "env": {
+    "MONGODB_ATLAS_PW": "5usscDXsKWhZPDvm",
+    "JWT_KEY": "r1ChOp0uc3LRLChuCr846hoFRomUsp"
+  }
+}

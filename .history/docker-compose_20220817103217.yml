@@ -1,0 +1,17 @@
+version: "3"
+
+# Define the services/ containers to be run
+services:
+  angular: # Name of the first service
+    build: ./client # Specify the directory of the Dockerfile
+    ports:
+      - 4200:4200
+
+    container_name: mjars-client
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  express: # Name of the second service
+    build: ./server # Specify the directory of the Dockerfile
+    ports:
+      - 3000:3000
