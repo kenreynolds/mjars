@@ -1,1 +1,133 @@
-<p>home works!</p>
+<div class="hero-wrapper flex justify-between text-zinc-700 px-8 w-full">
+  <div class="container mx-auto py-8">
+    <app-hero></app-hero>
+  </div>
+</div>
+
+<!-- Repeaters & Nodes -->
+<app-repeaters></app-repeaters>
+
+<!-- Events -->
+<!-- TODO: Factor this into a separate component -->
+<section class="bg-white flex justify-start text-zinc-700 p-12 w-full">
+  <div class="container flex flex-col mx-auto">
+    <h3 class="font-bold text-3xl">Upcoming Events</h3>
+
+    <div class="flex flex-wrap mt-4">
+      <div class="flex items-center shadow-lg rounded mr-8 p-8 pl-4">
+        <img
+          class="mr-4 h-20 w-20"
+          src="../../../../assets/images/mjars-logo-transparent.png"
+          alt="Mansfield-Johnson Amateur Radio Service"
+        />
+
+        <div class="flex flex-col">
+          <h4 class="font-bold text-xl">MJARS Monthly Meeting</h4>
+
+          <span class="text-zinc-500">
+            <p class="text-lg">Sep. 02, 2022</p>
+            <p class="text-lg">7:00 pm - 9:00 pm</p>
+          </span>
+
+          <a class="pt-2 text-blue-500 underline" href="/">
+            Get directions
+          </a>
+        </div>
+      </div>
+
+      <div class="flex items-center shadow-lg rounded mr-8 p-8 pl-4">
+        <img
+          class="mr-4 h-20 w-20"
+          src="../../../../assets/images/mjars-logo-transparent.png"
+          alt="Mansfield-Johnson Amateur Radio Service"
+        />
+
+        <div class="flex flex-col">
+          <h4 class="font-bold text-xl">Ham EXPO - Belton Hamfest</h4>
+
+          <span class="text-zinc-500">
+            <p class="text-lg">Oct. 01, 2022</p>
+            <p class="text-lg">7:00 am - 1:00 pm</p>
+          </span>
+
+          <a class="pt-2 text-blue-500 underline" href="/">
+            Get directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nets -->
+<!-- TODO: Factor this into a separate component -->
+<section class="bg-white flex justify-start p-12 w-full">
+  <div class="container flex flex-col mx-auto">
+    <h3 class="font-bold text-3xl">MJARS Hosted Nets</h3>
+
+    <div class="flex flex-wrap mt-4">
+      <div class="flex items-center shadow-lg rounded mr-8 p-8 pl-4">
+        <div class="flex items-start h-full">
+          <img
+            class="mr-4 h-20 w-20"
+            src="../../../../assets/images/mjars-logo-transparent.png"
+            alt="Mansfield-Johnson Amateur Radio Service"
+          />
+        </div>
+
+        <div class="flex flex-col">
+          <h4 class="font-bold text-xl">DFW 220 Net</h4>
+          <p class="text-lg">Net control: Jim Erickson (KB0DBJ)</p>
+
+          <span class="text-zinc-500">
+            <p class="text-lg">Aug. 25, 2022</p>
+            <p class="text-lg">8:00 pm</p>
+            <p class="text-lg">224.460-; 110.9 | EchoLink: KB0DBJ-L</p>
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center shadow-lg rounded mr-8 p-8 pl-4">
+        <div class="flex items-start h-full">
+          <img
+            class="mr-4 h-20 w-20"
+            src="../../../../assets/images/mjars-logo-transparent.png"
+            alt="Mansfield-Johnson Amateur Radio Service"
+          />
+        </div>
+
+        <div class="flex flex-col">
+          <h4 class="font-bold text-xl">MJARS Info & Training Net</h4>
+          <p class="text-lg">Net control: Rick Baker (KG5SRM)</p>
+
+          <span class="text-zinc-500">
+            <p class="text-lg">Aug. 26, 2022</p>
+            <p class="text-lg">7:00 pm</p>
+            <p class="text-lg">448.775-; 167.9 | EchoLink: WA5JRS-L</p>
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center shadow-lg rounded mr-8 p-8 pl-4">
+        <div class="flex items-start h-full">
+          <img
+            class="mr-4 h-20 w-20"
+            src="../../../../assets/images/mjars-logo-transparent.png"
+            alt="Mansfield-Johnson Amateur Radio Service"
+          />
+        </div>
+
+        <div class="flex flex-col">
+          <h4 class="font-bold text-xl">YL NTX Weekly Net</h4>
+          <p class="text-lg">Net control: Allison Hollier (KG5BHY)</p>
+
+          <span class="text-zinc-500">
+            <p class="text-lg">Aug. 29, 2022</p>
+            <p class="text-lg">8:00 pm</p>
+            <p class="text-lg">145.390-; 167.9 | EchoLink: KG5BHY-L</p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

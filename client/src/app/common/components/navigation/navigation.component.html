@@ -1,52 +1,96 @@
 <nav>
-  <ul class="flex items-center text-zinc-50">
-    <li
-      class="mr-6"
-      *ngIf="userIsAuthenticated"
-    >
+  <ul class="flex items-center text-zinc-200">
+    <li class="px-6 py-8">
       <a
-        class="hover:underline hover:underline-offset-4"
-        routerLink="/members"
+        class="hover:underline hover:underline-offset-4 hover:text-white"
+        routerLink="/"
       >
-        Members
+        Club information
       </a>
     </li>
-    <li
-      class="mr-6"
-      *ngIf="userIsAuthenticated"
-    >
+    <li class="px-6 py-8">
       <a
-        class="hover:underline hover:underline-offset-4"
-        routerLink="/members/add-member"
+        class="hover:underline hover:underline-offset-4 hover:text-white"
+        routerLink="/"
       >
-        Add member
+        Events
       </a>
     </li>
-    <div class="flex">
-      <li class="mr-6">
+    <li class="px-6 py-8">
+      <a
+        class="hover:underline hover:underline-offset-4 hover:text-white"
+        routerLink="/"
+      >
+        Nets
+      </a>
+    </li>
+    <li class="px-6 py-8">
+      <a
+        class="hover:underline hover:underline-offset-4 hover:text-white"
+        routerLink="/"
+      >
+        Gallery
+      </a>
+    </li>
+    <li class="pl-6 py-8">
+      <a
+        class="hover:underline hover:underline-offset-4 hover:text-white"
+        routerLink="/"
+      >
+        Contact us
+      </a>
+    </li>
+
+    <!-- Admins ONLY -->
+    <div *ngIf="userIsAuthenticated">
+      <li
+        class="px-6 py-8"
+        *ngIf="userIsAuthenticated"
+      >
         <a
-          class="hover:underline hover:underline-offset-4"
-          *ngIf="!userIsAuthenticated"
-          routerLink="/signup"
+          class="hover:underline hover:underline-offset-4 hover:text-white"
+          routerLink="/members"
         >
-          Sign up
-        </a>
-      </li>
-      <li class="mr-6">
-        <a
-          class="font-bold"
-          *ngIf="!userIsAuthenticated"
-          routerLink="/login"
-        >
-          Login
+          Members
         </a>
       </li>
       <li
-        class="font-bold"
+        class="px-6 py-8"
         *ngIf="userIsAuthenticated"
       >
-        <button (click)="onLogout()">Logout</button>
+        <a
+          class="hover:underline hover:underline-offset-4 hover:text-white"
+          routerLink="/members/add-member"
+        >
+          Add member
+        </a>
       </li>
+      <div class="flex">
+        <li class="px-6 py-8">
+          <a
+            class="hover:underline hover:underline-offset-4 hover:text-white"
+            *ngIf="!userIsAuthenticated"
+            routerLink="/signup"
+          >
+            Sign up
+          </a>
+        </li>
+        <li class="px-6 py-8">
+          <a
+            class="font-bold"
+            *ngIf="!userIsAuthenticated"
+            routerLink="/login"
+          >
+            Login
+          </a>
+        </li>
+        <li
+          class="font-bold"
+          *ngIf="userIsAuthenticated"
+        >
+          <button (click)="onLogout()">Logout</button>
+        </li>
+      </div>
     </div>
   </ul>
 </nav>
