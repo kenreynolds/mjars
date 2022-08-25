@@ -1,40 +1,48 @@
 <nav>
-  <ul class="flex items-center text-zinc-200">
-    <li class="px-6 py-8">
+  <ul class="flex items-center text-zinc-300">
+    <li class="px-6">
       <a
-        class="hover:underline hover:underline-offset-4 hover:text-white"
+        class="text-zinc-50"
+        routerLink="/"
+      >
+        Home
+      </a>
+    </li>
+    <li class="px-6">
+      <a
+        class="hover:text-white"
         routerLink="/"
       >
         Club information
       </a>
     </li>
-    <li class="px-6 py-8">
+    <li class="px-6">
       <a
-        class="hover:underline hover:underline-offset-4 hover:text-white"
+        class="hover:text-white"
         routerLink="/"
       >
         Events
       </a>
     </li>
-    <li class="px-6 py-8">
+    <li class="px-6">
       <a
-        class="hover:underline hover:underline-offset-4 hover:text-white"
+        class="hover:text-white"
         routerLink="/"
       >
         Nets
       </a>
     </li>
-    <li class="px-6 py-8">
+    <li class="px-6">
       <a
-        class="hover:underline hover:underline-offset-4 hover:text-white"
+        class="hover:text-white"
         routerLink="/"
       >
         Gallery
       </a>
     </li>
-    <li class="pl-6 py-8">
+    <li class="pl-6 pr-2">
       <a
-        class="hover:underline hover:underline-offset-4 hover:text-white"
+        class="hover:text-white"
         routerLink="/"
       >
         Contact us
@@ -44,38 +52,38 @@
     <!-- Admins ONLY -->
     <div *ngIf="userIsAuthenticated">
       <li
-        class="px-6 py-8"
+        class="px-6"
         *ngIf="userIsAuthenticated"
       >
         <a
-          class="hover:underline hover:underline-offset-4 hover:text-white"
+          class="hover:text-white"
           routerLink="/members"
         >
           Members
         </a>
       </li>
       <li
-        class="px-6 py-8"
+        class="px-6"
         *ngIf="userIsAuthenticated"
       >
         <a
-          class="hover:underline hover:underline-offset-4 hover:text-white"
+          class="hover:text-white"
           routerLink="/members/add-member"
         >
           Add member
         </a>
       </li>
       <div class="flex">
-        <li class="px-6 py-8">
+        <li class="px-6">
           <a
-            class="hover:underline hover:underline-offset-4 hover:text-white"
+            class="hover:text-white"
             *ngIf="!userIsAuthenticated"
             routerLink="/signup"
           >
             Sign up
           </a>
         </li>
-        <li class="px-6 py-8">
+        <li class="px-6">
           <a
             class="font-bold"
             *ngIf="!userIsAuthenticated"
