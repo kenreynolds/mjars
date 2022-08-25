@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Member } from '../../models/member.model';
@@ -11,7 +11,7 @@ import { MembersService } from '../../services/members.service';
   styleUrls: ['./add-member.component.scss'],
 })
 export class AddMemberComponent implements OnInit {
-  addMemberForm!: FormGroup;
+  addMemberForm!: UntypedFormGroup;
   member: Member;
 
   pageTitle = 'Add member';
@@ -125,7 +125,7 @@ export class AddMemberComponent implements OnInit {
 
   constructor(
     public route: ActivatedRoute,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private membersService: MembersService
   ) {}
 

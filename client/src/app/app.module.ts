@@ -25,41 +25,40 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    HeaderComponent,
-    HeroComponent,
-    HomeComponent,
-    NavigationComponent,
-    RepeatersComponent,
-    ErrorComponent,
-    PageNotFoundComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AuthModule,
-    FontAwesomeModule,
-    FormsModule,
-    MatSnackBarModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true,
-    }
-  ],
-  bootstrap: [AppComponent],
-  entryComponents: [ErrorComponent],
+    declarations: [
+        AppComponent,
+        FooterComponent,
+        HeaderComponent,
+        HeroComponent,
+        HomeComponent,
+        NavigationComponent,
+        RepeatersComponent,
+        ErrorComponent,
+        PageNotFoundComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        AuthModule,
+        FontAwesomeModule,
+        FormsModule,
+        MatSnackBarModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+    ],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: ErrorInterceptor,
+            multi: true,
+        }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}
